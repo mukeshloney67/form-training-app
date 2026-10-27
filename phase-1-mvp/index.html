@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A calm, local-first strength training log that tells you what to do next.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=4">
+  <title>FORM · Training</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#today" aria-label="FORM home"><span class="brand-mark">f.</span><span>FORM</span></a>
+      <div class="topbar-actions"><span class="save-state" id="saveState" aria-live="polite">On this device</span><button class="icon-button" type="button" data-nav="settings" aria-label="Settings">•••</button></div>
+    </header>
+    <main id="main" class="main-content" tabindex="-1"></main>
+    <nav class="bottom-nav" id="bottomNav" aria-label="Main navigation">
+      <button type="button" data-nav="today" class="nav-item active"><span class="nav-icon">⌂</span><span>Today</span></button>
+      <button type="button" data-nav="plan" class="nav-item"><span class="nav-icon">▦</span><span>Plan</span></button>
+      <button type="button" data-nav="history" class="nav-item"><span class="nav-icon">⌁</span><span>History</span></button>
+      <button type="button" data-nav="settings" class="nav-item"><span class="nav-icon">•••</span><span>Settings</span></button>
+    </nav>
+  </div>
+  <dialog id="editorDialog" class="dialog"><form id="workoutEditorForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow">Program editor</p><h2 id="editorTitle">Edit workout</h2></div><button class="icon-button" value="cancel" formnovalidate aria-label="Close">×</button></div><div id="editorFields"></div><div class="dialog-actions"><button class="button button-quiet" value="cancel" formnovalidate>Cancel</button><button class="button button-primary" id="saveWorkoutButton" value="save">Save workout</button></div></form></dialog>
+  <dialog id="importDialog" class="dialog"><form id="importForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow">Move your training data</p><h2>Import CSV</h2></div><button class="icon-button" value="cancel" formnovalidate aria-label="Close">×</button></div><label class="field-label" for="importType">What are you importing?</label><select id="importType" class="field"><option value="routine">Program / routine</option><option value="history">Workout history</option></select><label class="field-label" for="csvFile">Choose a CSV file</label><input class="field file-field" id="csvFile" type="file" accept=".csv,text/csv" required><p class="help-copy" id="csvHelp">Routine columns: workout, day, exercise, sets, min_reps, max_reps, rir, load</p><button class="text-button" type="button" id="downloadTemplate">Download sample CSV</button><div class="dialog-actions"><button class="button button-quiet" value="cancel" formnovalidate>Cancel</button><button class="button button-primary" id="importCsvButton" value="import">Import</button></div></form></dialog>
+  <dialog id="confirmDialog" class="dialog"><form method="dialog"><div id="confirmContent"></div><div class="dialog-actions"><button class="button button-quiet" value="cancel">Cancel</button><button class="button button-primary" id="confirmAction" value="confirm">Continue</button></div></form></dialog>
+  <dialog id="syncChoiceDialog" class="dialog"><form method="dialog"><div class="dialog-head"><div><p class="eyebrow">Choose what to keep</p><h2>Two sets of training data</h2></div></div><p class="subtitle">We’ll combine completed workout histories either way. Choose which plan to use. Any workout in progress on this device will be kept.</p><div class="dialog-actions sync-choice-actions"><button class="button button-primary" value="local">Use this device’s plan</button><button class="button button-quiet" value="cloud">Use the account’s plan</button><button class="button button-quiet" value="cancel">Cancel</button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
