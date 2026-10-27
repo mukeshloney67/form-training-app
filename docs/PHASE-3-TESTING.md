@@ -2,11 +2,11 @@
 
 ## Automated checks
 
-Run `npm test` in this folder. The tests cover the independent progression rule, boundary inputs, saved recommendation details, and chart data from completed sets.
+Run `npm test` from the project root. The tests cover the independent progression rule, boundary inputs, saved recommendation details, and chart data from completed sets.
 
 ## Hands-on acceptance checks
 
-Run these in a browser served from localhost or HTTPS. Use a disposable browser profile if you need to start with a clean plan.
+Run `npm run dev` from the project root and use the app at `http://localhost:3000`. Use a disposable browser profile if you need to start with a clean plan.
 
 1. **Find the next workout:** complete onboarding and identify the suggested session. Record how long it took and whether the choice was clear.
 2. **Start and log:** start that workout, change one set's load/reps/RIR, save it, then move to another exercise and back. The saved set should still be there.

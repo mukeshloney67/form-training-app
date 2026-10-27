@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { estimateOneRepMax, performancePoints, prescriptionFor, recommendationSnapshot } from '../progression.js';
+import { estimateOneRepMax, performancePoints, prescriptionFor, recommendationSnapshot } from '../public/form/progression.js';
 
 const exercise = {
   id: 'bench', name: 'Bench press', sets: 3, minReps: 8, maxReps: 12,

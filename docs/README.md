@@ -19,9 +19,9 @@ FORM is an installable, phone-first progressive web app for strength training. T
 
 ## Run it
 
-Serve this folder from localhost or a static HTTPS host, then open `index.html`. A service worker cannot be installed from a `file://` URL. For local preview, from this folder run `python3 -m http.server 8000`, then open `http://localhost:8000`.
+Install dependencies from the project root with `npm install`, start Next.js with `npm run dev`, then open `http://localhost:3000`.
 
-Run the automated progression checks from this folder with `npm test`.
+Run the automated progression checks from the project root with `npm test`.
 
 Use the browser's install action to add it to a phone's home screen. In iOS Safari, use Share → Add to Home Screen. Until Firebase is configured and cloud sync is enabled, all data stays in this browser on this device. See [PHASE-2-SETUP.md](./PHASE-2-SETUP.md) for the exact setup steps. The Firebase SDK is loaded only when account features are used and requires an internet connection.
 

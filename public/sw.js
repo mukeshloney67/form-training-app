@@ -1,5 +1,5 @@
-const CACHE_NAME = 'form-training-phase3-auth-v1';
-const APP_SHELL = ['./', './index.html', './styles.css?v=4', './app.js', './progression.js', './phase-2-cloud.js', './firebase-config.js', './manifest.webmanifest', './icon.svg'];
+const CACHE_NAME = 'form-training-next-v1';
+const APP_SHELL = ['/', '/manifest.webmanifest', '/icon.svg', '/form/app.js', '/form/progression.js', '/form/phase-2-cloud.js', '/form/firebase-config.js'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
@@ -17,5 +17,5 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(caches.match(request).then((cached) => cached || fetch(request).then((response) => {
     if (response.ok) caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
     return response;
-  }).catch(() => caches.match('./index.html'))));
+  }).catch(() => caches.match('/'))));
 });

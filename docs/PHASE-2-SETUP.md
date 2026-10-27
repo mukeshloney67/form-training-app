@@ -29,8 +29,8 @@ After we agree on the database location:
 3. In **Authentication → Sign-in method**, enable **Google** and choose your own support email when Firebase asks.
 4. In **Authentication → Settings → Authorized domains**, add `localhost` for development if it is not already listed. New Firebase projects may not include it automatically. We will add your public website address later, if you have one.
 5. Create a **Cloud Firestore** database in the location we agreed on. Choose **production mode**, not test mode.
-6. In Firestore’s **Rules** tab, paste the rules from [firestore.rules](./firestore.rules) and publish them. They allow each signed-in person to access only their own account data.
-7. From **Project settings → Your apps → Firebase SDK snippet**, copy the small object named `firebaseConfig` and paste it here. You do not need to edit it; I’ll put it in the right place. The app uses `apiKey`, `authDomain`, `projectId`, and `appId`.
+6. In Firestore’s **Rules** tab, paste the rules from [firestore.rules](../firebase/firestore.rules) and publish them. They allow each signed-in person to access only their own account data.
+7. From **Project settings → Your apps → Firebase SDK snippet**, copy the small object named `firebaseConfig` and paste it here. You do not need to edit it; I’ll put it in the right place. The app uses `apiKey`, `authDomain`, `projectId`, and `appId` in [firebase-config.js](../public/form/firebase-config.js).
 
 The Firebase web configuration is designed to be used by a web app. It is not your Google password or a private server key. I will put those four values in `firebase-config.js`. Do not add billing details or upgrade the project plan for this prototype unless we review the cost first.
 

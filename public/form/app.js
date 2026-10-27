@@ -1104,7 +1104,9 @@ if (isFirebaseConfigured()) {
 }
 
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch((error) => console.warn('Offline cache was not registered.', error)));
+  const registerAppWorker = () => navigator.serviceWorker.register('/sw.js').catch((error) => console.warn('Offline cache was not registered.', error));
+  if (document.readyState === 'complete') registerAppWorker();
+  else window.addEventListener('load', registerAppWorker, { once: true });
 }
 
 if (state.activeSession) currentView = 'today';
